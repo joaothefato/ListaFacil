@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ListaFácil: organize tarefas e acompanhe seu dia em um só lugar.">
+  <title>ListaFácil | Organize seu dia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="ListaFácil início"><span class="brand-icon">✓</span><span>Lista<span class="brand-light">Fácil</span></span></a>
+      <div class="side-label">MENU</div>
+      <button class="nav-item active" data-filter="all"><span>▦</span> Todas as tarefas <b id="allCount">0</b></button>
+      <button class="nav-item" data-filter="today"><span>◷</span> Para hoje <b id="todayCount">0</b></button>
+      <button class="nav-item" data-filter="done"><span>✓</span> Concluídas</button>
+      <div class="sidebar-bottom">
+        <div class="tip-card"><div class="tip-icon">✦</div><strong>Um passo de cada vez.</strong><p>Organize suas tarefas e deixe seu dia mais leve.</p></div>
+        <div class="profile"><div class="avatar">LF</div><div><strong>Meu espaço</strong><small>Plano pessoal</small></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div><span class="eyebrow">SEU ESPAÇO DE ORGANIZAÇÃO</span><h1>Minhas tarefas</h1><p id="todayDate" class="muted"></p></div><div class="top-actions"><span class="online-dot"></span><span>Salvo neste dispositivo</span></div></header>
+      <section class="welcome">
+        <div><span class="welcome-kicker">OLÁ! VAMOS COMEÇAR?</span><h2>Pequenas tarefas,<br><em>grandes conquistas.</em></h2><p>Adicione o que precisa fazer e acompanhe seu progresso.</p></div>
+        <div class="welcome-art" aria-hidden="true"><div class="art-circle"></div><div class="art-card"><span>✓</span><span>✓</span><span>○</span></div></div>
+      </section>
+
+      <section class="stats">
+        <article class="stat-card"><div class="stat-symbol purple">▦</div><div><small>TOTAL DE TAREFAS</small><strong id="statTotal">0</strong></div></article>
+        <article class="stat-card"><div class="stat-symbol green">✓</div><div><small>CONCLUÍDAS</small><strong id="statDone">0</strong></div></article>
+        <article class="stat-card"><div class="stat-symbol orange">◷</div><div><small>PENDENTES</small><strong id="statPending">0</strong></div></article>
+      </section>
+
+      <section class="task-section">
+        <div class="section-heading"><div><h3 id="listTitle">Todas as tarefas</h3><p class="muted">Mantenha tudo em ordem, no seu ritmo.</p></div><button class="primary-btn" id="openForm"><span>＋</span> Nova tarefa</button></div>
+        <form id="taskForm" class="task-form hidden">
+          <div class="form-title"><strong>Adicionar tarefa</strong><button type="button" class="close-btn" id="closeForm" aria-label="Fechar">×</button></div>
+          <label for="taskName">O que você precisa fazer?</label><input id="taskName" maxlength="90" placeholder="Ex.: Estudar para a prova" required>
+          <div class="form-row"><div><label for="taskDate">Data</label><input id="taskDate" type="date"></div><div><label for="taskCategory">Categoria</label><select id="taskCategory"><option>Geral</option><option>Estudos</option><option>Trabalho</option><option>Pessoal</option></select></div></div>
+          <button class="primary-btn submit-btn" type="submit">Adicionar à lista</button>
+        </form>
+        <div class="toolbar"><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar tarefa..."></div><div class="filter-pills"><button class="pill selected" data-status="all">Todas</button><button class="pill" data-status="pending">Pendentes</button><button class="pill" data-status="done">Concluídas</button></div></div>
+        <div id="taskList" class="task-list"></div>
+        <div id="emptyState" class="empty-state hidden"><div class="empty-icon">✓</div><strong>Nenhuma tarefa por aqui</strong><p>Adicione uma tarefa ou altere os filtros para ver sua lista.</p><button class="text-btn" id="emptyAdd">＋ Criar primeira tarefa</button></div>
+      </section>
+      <footer>ListaFácil <span>•</span> MVP acadêmico — seus dados ficam salvos no navegador.</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
